@@ -662,7 +662,7 @@ var mime = 'html';
     } else {
       response.writeHead(404, {'Content-Type': 'text/'+mime});
       response.write('<h1>Welcome to Ninzas\'s SSRF demo.</h1>\n\n');
-      response.write('<h2>I wanted to be useful, but I could not find: <font color="red">'+url+'</font> for you\n</h2><br><br>\n\n\n');
+      response.write('<h2>I wanted to be useful, but I could not find: <font color="red">test-url</font> for you\n</h2><br><br>\n\n\n');
       response.end();
       console.log('error')
 
@@ -682,8 +682,9 @@ router.post('/secret/shell',urlencodedParser,authenticateToken,function(req, res
    return  res.send("sorry No user defined" + ser)
  }
 else {
-  const uns = serialize.unserialize(req.body)    // Insecure Deserailiazation => Remote Code Execution
-  return   res.send(uns)
+  // const uns = serialize.unserialize(req.body)    // Insecure Deserailiazation => Remote Code Execution
+  // return   res.send(uns)
+  return res.send("response")
 }
 
 
